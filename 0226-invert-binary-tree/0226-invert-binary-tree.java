@@ -16,6 +16,23 @@
 class Solution {
     public TreeNode invertTree(TreeNode root) {
         if(root==null){
+            return null;
+        }
+        swap(root);
+        return root;
+    }
+    public void swap(TreeNode node){
+           if(node==null){
+            return;
+           }
+           swap(node.left);
+           swap(node.right);
+           TreeNode temp=node.left;
+           node.left=node.right;
+           node.right=temp;
+    }
+}
+/*if(root==null){
             return root;
         }
        Queue<TreeNode> q=new LinkedList<>();
@@ -33,6 +50,4 @@ class Solution {
             current.left=current.right;
             current.right=temp;
        }
-       return root;
-    }
-}
+       return root;*/
